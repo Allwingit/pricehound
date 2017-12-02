@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Pricehound</title>
+    </head>
+    <body>
+        <div>
+            <h1><a href="/">Pricehound</a></h1>
+        </div>
+
+        {% for product in products %}
+
+            <div>
+                <h1><a href="">{{ product.Brand }}</a></h1>
+                <p>{{ product.Product_name|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+
+    </body>
+</html>
