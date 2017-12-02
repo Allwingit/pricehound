@@ -46,6 +46,7 @@ Twisted="*"
 urllib3="*"
 vine="*"
 w3lib="*"
+django-celery-results="*"
 
 [requires]
 python_version = "2.7"
