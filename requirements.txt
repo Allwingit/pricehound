@@ -28,7 +28,7 @@ pyOpenSSL==17.3.0
 pytz==2017.2
 queuelib==1.4.2
 requests==2.18.4
-rabbitmq=0.2.0
+rabbitmq==0.2.0
 Scrapy==1.4.0
 scrapy-djangoitem==1.1.1
 scrapyd==1.2.0
