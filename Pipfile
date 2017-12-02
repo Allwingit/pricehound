@@ -47,6 +47,7 @@ urllib3="*"
 vine="*"
 w3lib="*"
 django-celery-results="*"
+django-celery-beat="*"
 
 [requires]
 python_version = "2.7"
