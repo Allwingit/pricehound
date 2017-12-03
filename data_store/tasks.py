@@ -1,5 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 from celery import shared_task
+import django
+django.setup()
 import requests
 import json
 #from views import fetch_from_fkin,log_price_history
