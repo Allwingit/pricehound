@@ -1,27 +1,25 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.contrib import admin
-from .models import Product_details,Brand,Store,Category,Specification
-# Register your models here.
-class ProductDetailsAdmin(admin.ModelAdmin):
-    list_display = ('Brand_name', 'Product_name', 'Product_Category','Product_Spec','Store_name')
+from .models import Store, Category, Brand, ProductModel, ProductVariant, ProductListing
 
-admin.site.register(Product_details,ProductDetailsAdmin)
 
 class StoreAdmin(admin.ModelAdmin):
     list_display = ('name', 'domain','store_code')
-
 admin.site.register(Store,StoreAdmin)
 
 admin.site.register(Category)
 
 class BrandAdmin(admin.ModelAdmin):
     list_display = ('name', 'website')
-
 admin.site.register(Brand,BrandAdmin)
 
-class SpecificationAdmin(admin.ModelAdmin):
-    list_display = ('color', 'Memory', 'RAM')
+class ProductModelAdmin(admin.ModelAdmin):
+    list_display = ('brand', 'name','category','description','specifications')
+admin.site.register(ProductModel,ProductModelAdmin)
 
-admin.site.register(Specification,SpecificationAdmin)
+class ProductVariantAdmin(admin.ModelAdmin):
+    list_display = ('product_model', 'color','capacity','images','best_current_price')
+admin.site.register(ProductVariant,ProductVariantAdmin)
+
+class ProductListingAdmin(admin.ModelAdmin):
+    list_display = ('product_variant', 'store','product_id','affiliate_url','listing_url')
+admin.site.register(ProductListing,ProductListingAdmin)
