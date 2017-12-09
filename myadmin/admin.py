@@ -21,5 +21,5 @@ class ProductVariantAdmin(admin.ModelAdmin):
 admin.site.register(ProductVariant,ProductVariantAdmin)
 
 class ProductListingAdmin(admin.ModelAdmin):
-    list_display = ('product_variant', 'store','product_id','affiliate_url','listing_url')
+    list_display = ('product_variant', 'store','product_id','affiliate_url','current_price')
 admin.site.register(ProductListing,ProductListingAdmin)

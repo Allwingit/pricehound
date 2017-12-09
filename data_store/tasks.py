@@ -21,7 +21,7 @@ def fetch_from_fkin():
         price_details = 0
         headers = {
             'Fk-Affiliate-Id': 'christoph31',
-            'Fk-Affiliate-Token': '3cbefcacc4584363a88b563a190b22ff',
+            'Fk-Affiliate-Token': 'e10dba90eca0457484328d9c51050512',
         }
 
     	product_models = ProductModel.objects.all()
@@ -56,6 +56,8 @@ def fetch_from_fkin():
                         output = json.loads(response.text)
                         price  = output ['productBaseInfo']['productAttributes']['sellingPrice']['amount']
                         #print timezone.now()
+                        #product_listing.current_price = price
+                        #product_listing.save(update_fields=['current_price'])
                         price_details=price
                         price_history_entry = PriceHistory(listing = product_listing, price = price, timestamp = timezone.now())
                         price_history_entry.save()
