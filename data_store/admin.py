@@ -7,6 +7,6 @@ from .models import PriceHistory
 
 class PriceHistoryAdmin(admin.ModelAdmin):
     list_display = ('listing', 'price', 'timestamp')
-    readonly_fields = ('timestamp','price')
+    readonly_fields = ('listing','timestamp','price')
 
 admin.site.register(PriceHistory,PriceHistoryAdmin)

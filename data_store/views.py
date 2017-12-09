@@ -23,10 +23,10 @@ def update_price(request):
 
     for product_model in product_models:
         #print product_model
-        if product_model.Store == "AM-IN":
+        if product_model.Store_name == "AM-IN":
             print "Amazon Listing"
 
-        elif product_model.Store == "FK-IN":
+        elif product_model.Store_name == "FK-IN":
             fetched_price = fetch_from_fkin.delay()
             #product_model.ProductID
             #fetch_from_fkin.delay(product_model.ProductID)

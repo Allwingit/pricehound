@@ -17,4 +17,4 @@ class PriceHistory(models.Model):
         verbose_name_plural = ('Price History')
 
     def __str__(self):
-        return ' {0.listing} ({0.timestamp})'.format(self)
+        return '%s %s %s' %(self.listing.Brand_name, self.listing.Product_name,self.listing.Product_Spec)
