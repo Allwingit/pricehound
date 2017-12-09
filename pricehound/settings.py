@@ -154,7 +154,7 @@ STATICFILES_DIRS = (
 
 
 CELERY_BROKER_URL = 'amqp://nrqthfau:RYBXtxLsSydKFkxmWJtgSDDTdQR90I13@spider.rmq.cloudamqp.com/nrqthfau'
-#CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_BACKEND = 'django-db'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
