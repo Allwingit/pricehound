@@ -41,3 +41,5 @@ w3lib==1.18.0
 zope.interface==4.4.3
 dj-database-url == 0.4.2
 gunicorn == 19.7
+django-celery-results==1.0.1
+django-celery-beat=="1.1.0"
