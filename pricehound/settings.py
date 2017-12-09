@@ -150,7 +150,7 @@ STATICFILES_DIRS = (
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 CELERY_BROKER_URL = 'amqp://nrqthfau:RYBXtxLsSydKFkxmWJtgSDDTdQR90I13@spider.rmq.cloudamqp.com/nrqthfau'
