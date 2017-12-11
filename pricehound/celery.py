@@ -9,9 +9,9 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pricehound.settings')
 app = Celery('data_store')
 
 app.conf.beat_schedule = {
-    'add-every-1-seconds': {
+    'add-every-1-hour': {
         'task': 'data_store.tasks.fetch_from_fkin',
-        'schedule': crontab(minute='*/1'),
+        'schedule': crontab(minute=0,hour='*/1'),
         'args': ('')
     },
 }

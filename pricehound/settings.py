@@ -28,6 +28,13 @@ DEBUG = False
 
 TEST_RUNNER = 'gettingstarted.heroku_test_runner.HerokuDiscoverRunner'
 
+# EMAIL_HOST='www.gmail.com'
+# EMAIL_PORT=25
+# EMAIL_HOST_USER='sallwin473@gmail.com'
+# EMAIL_HOST_PASSWORD='Allwin11'
+# SERVER_EMAIL='sallwin473@gmail.com'
+
+ADMIN = [('Allwin','sallwin473@gmail.com'),('Allwin','sallwin444@live.com')]
 
 # Application definition
 
@@ -154,7 +161,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 CELERY_BROKER_URL = 'amqp://nrqthfau:RYBXtxLsSydKFkxmWJtgSDDTdQR90I13@spider.rmq.cloudamqp.com/nrqthfau'
-CELERY_RESULT_BACKEND = 'django-db'
+#CELERY_RESULT_BACKEND = 'django-db'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
