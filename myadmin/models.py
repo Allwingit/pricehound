@@ -71,8 +71,8 @@ class ProductVariant(models.Model):
     product_model = models.ForeignKey(ProductModel, on_delete=models.CASCADE)
     color = models.CharField(max_length = 50)
     capacity = models.CharField(max_length = 50, blank = True)
-    images = models.TextField(blank=True) #change to image upload
-    best_current_price = models.CharField(max_length=20, blank=True, editable = False)
+    images = models.TextField(null=True,blank=True) #change to image upload
+    best_current_price = models.CharField(null=True,max_length=20, blank=True, editable = False)
 
     class Meta:
            unique_together =(("product_model", "color", "capacity"))
@@ -93,9 +93,9 @@ class ProductListing(models.Model):
     product_variant = models.ForeignKey(ProductVariant, on_delete=models.CASCADE)
     store = models.ForeignKey(Store, on_delete = models.CASCADE)
     product_id = models.CharField(max_length = 20, blank = True)
-    listing_url = models.URLField(blank = True)
-    affiliate_url = models.URLField(blank = True)
-    current_price = models.CharField(max_length = 20, blank = True, editable = False)
+    listing_url = models.URLField(null=True,blank = True)
+    affiliate_url = models.URLField(null=True,blank = True)
+    current_price = models.CharField(null=True,max_length = 20, blank = True, editable = False)
 
     class Meta:
         unique_together =(("product_variant", "store",))

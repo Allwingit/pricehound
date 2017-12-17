@@ -14,7 +14,7 @@
 }
 [class*="col-"] {
     float: left;
-    padding: 50px;
+    padding: 15px;
 }
 html {
     font-family: "Lucida Sans", sans-serif;
@@ -23,8 +23,8 @@ html {
     background-color: #333;
     color: #ffffff;
     text-align: center;
-    padding: 10px;
-    height: 60px;
+    padding: 2px;
+    height: 10%
 }
 .menu ul {
     list-style-type: none;
@@ -56,8 +56,7 @@ html {
     color: #ffffff;
     text-align: center;
     font-size: 12px;
-    padding: 10px;
-    height:50px;
+    padding: 20px;
 }
 /* For desktop: */
 .col-1 {width: 8.33%;}
@@ -224,37 +223,13 @@ html {
   background: #ff6600;
   color: white;
 }
-h1 {
-    display: block;
-    font-size: 2em;
-    margin-top: 0.10em;
-    margin-bottom: 0.120em;
-    margin-left: 50;
-    margin-right: 50;
-    text-align: center;
-    font-weight: bold;
-}
-h2 {
-    display: block;
-    margin-top: 0.10em;
-    margin-bottom: 0.120em;
-    margin-left: 0;
-    margin-right: 0;
-    text-align: left;
-    font-weight: bold;
-}
-a:link {
-    color: green;
-    background-color: transparent;
-    text-decoration: none;
-}
 
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1><font face="courier" color="white">Price Hound</font></h1>
+  <h1>Price Hound</h1>
 </div>
 
 <div class="row">
@@ -274,30 +249,18 @@ a:link {
 </div>
 
 <div class="col-6">
-  <h2><font face="courier" color="black">List of Products in Database:</font></h2>
+  <h1>Import Data:</h1>
 
-  <table id="customers">
-    <tr>
-      <th>Brand</th>
-      <th>Model</th>
-      <th>Specification</th>
-      <th>Current Price</th>
-    </tr>
-    {% for product in products %}
-    <tr>
-      <td>{{product.product_variant.product_model.brand.name}}</td>
-      <td>{{product.product_variant.product_model.name}} </td>
-      <td>{{product.product_variant.capacity}}, {{product.product_variant.color}}</td>
-      <td>{{product.current_price}}</td>
-    </tr>
-    {% endfor %}
-  </table>
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+       {{uploadform.File}}
+       {{uploadform.Option}}
+      <input type="submit" value="Upload" />
 
+  </form>
 </div>
 
-
 </div>
-
 
 
 </body>
