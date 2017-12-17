@@ -24,7 +24,7 @@ def Upload_Data(request):
             dialect = csv.Sniffer().sniff(codecs.EncodedFile(csvfile, "utf-8").read(1024))
             csvfile.open()
             data = csv.reader(codecs.EncodedFile(csvfile, "utf-8"))
-            
+
             if (datatoupload=="Models"):
                 try:
                     first_frame=1
@@ -96,5 +96,4 @@ def Upload_Data(request):
     else:
         uploadform=UploadDataForm()
 
-    print "Data store "
     return render(request, 'DataManager/DataUpload.html',{'uploadform':uploadform})
