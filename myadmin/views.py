@@ -33,8 +33,16 @@ def Upload_Data(request):
                             first_frame=0
                             continue
 
-                        Primary_Key_Brand= Brand.objects.get(name=row[0])
-                        Primary_Key_Category=Category.objects.get(name=row[2])
+                        try:
+                            Primary_Key_Brand= Brand.objects.get(name=row[0])
+                        except (Brand.objects.get(name=row[0]).DoesNotExist):
+                            return HttpResponse("Wrong!!!! Selection Of Data Check you input..")
+
+                        try:
+                            Primary_Key_Category=Category.objects.get(name=row[2])
+                        except Primary_Key_Category.DoesNotExist:
+                            return HttpResponse("Wrong!!!! Selection Of Data Check you input..")
+
                         product_exist= ProductModel.objects.all()
 
                         if (ProductModel.objects.filter(brand=Primary_Key_Brand,name=row[1]).exists()):
@@ -64,7 +72,7 @@ def Upload_Data(request):
                                 else:
                                     product= ProductVariant(product_model=products,color=row[1],capacity=row[2])
                                     product.save()
-                                    print product
+                                    #print product
 
                 except (IOError):
                     print 'Variant CSV File is not found the directory'
@@ -81,13 +89,18 @@ def Upload_Data(request):
 
                         for products in Primary_Key_Variant:
                             if(str(products)==row[0]):
-                                Primary_Key_Store=Store.objects.get(name=row[1])
+
+                                try:
+                                    Primary_Key_Store=Store.objects.get(name=row[1])
+                                except Primary_Key_Store.DoesNotExist:
+                                    return HttpResponse("Wrong!!!! Selection Of Data Check you input..")
+
                                 if ProductListing.objects.filter(product_variant=products,store=Primary_Key_Store,product_id=row[2]).exists():
                                     continue
                                 else:
                                     product= ProductListing(product_variant=products,store=Primary_Key_Store,product_id=row[2])
                                     product.save()
-                                    print product
+                                    #print product
                 except (IOError):
                     print 'Listing CSV File is not found the directory'
 

@@ -98,7 +98,7 @@ html {
 #customers th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: center;
+    text-align: left;
     background-color: #333;
     color: white;
 }
@@ -253,9 +253,31 @@ html {
 
   <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-       {{uploadform.File}}
-       {{uploadform.Option}}
-      <input type="submit" value="Upload" />
+    <table id="customers">
+      <tr>
+        <th>Upload DATA into DATABASE</th>
+      </tr>
+      <tr>
+        <td>Enter Brand Name :</td>
+        <td>{{uploadform.Brand_Name}}</td>
+      </tr>
+      <tr>
+        <td>Enter Catrgory Name :</td>
+        <td>{{uploadform.Category_Name}}</td>
+      </tr>
+      <tr>
+        <td> Select File To Upload :</td>
+        <td>{{uploadform.File}}</td>
+      </tr>
+      <tr>
+        <td>Choose Option :</td>
+        <td>{{uploadform.Option}}</td>
+      </tr>
+      <tr>
+        <td><td><input type="submit" value="Upload"/>
+            <input type="reset" value="Cancel"/></td></td?
+      </tr>
+    </table>
 
   </form>
 </div>
