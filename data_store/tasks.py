@@ -50,12 +50,14 @@ def fetch_from_fkin():
                         print "Amazon Listing"
 
                     elif store_code == "FK-IN":
-                        response = requests.get('https://affiliate-api.flipkart.net/affiliate/product/json', headers=headers, params=params)
-                        #rep_api1 = requests.get('https://affiliate-api.flipkart.net/affiliate/1.0/product/json', headers=headers, params=params)
-                        #print rep_api1
+                        response = requests.get('https://affiliate-api.flipkart.net/affiliate/1.0/product.json', headers=headers,params=params)
                         output = json.loads(response.text)
-                        price  = output ['productBaseInfo']['productAttributes']['sellingPrice']['amount']
-                        #print timezone.now()
+                        price  = output ['productBaseInfoV1']['flipkartSpecialPrice']['amount']
+
+                        if price==0.0:
+                            price  = output ['productBaseInfoV1']['flipkartSellingPrice']['amount']
+
+                        #print price
                         product_listing.current_price = price
                         product_listing.save(update_fields=['current_price'])
                         price_details=price

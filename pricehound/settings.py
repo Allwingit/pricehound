@@ -35,6 +35,8 @@ TEST_RUNNER = 'gettingstarted.heroku_test_runner.HerokuDiscoverRunner'
 # SERVER_EMAIL='sallwin473@gmail.com'
 
 ADMIN = [('Allwin','sallwin473@gmail.com'),('Allwin','sallwin444@live.com')]
+BASICAUTH_USERNAME = 'pricehound_siteadmin'
+BASICAUTH_PASSWORD = 'pricehounduser@1234'
 
 # Application definition
 
@@ -52,6 +54,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'pricehound.Module.BasicAuthMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -71,7 +74,6 @@ TEMPLATES = [
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
-            'debug': True,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
