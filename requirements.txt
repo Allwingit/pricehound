@@ -29,7 +29,7 @@ pytz==2017.2
 queuelib==1.4.2
 requests==2.18.4
 rabbitmq==0.2.0
-Scrapy==1.4.0
+Scrapy==2.6.1
 scrapy-djangoitem==1.1.1
 scrapyd==1.2.0
 service-identity==17.0.0
